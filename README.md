@@ -106,6 +106,8 @@ OpenVPN must allow more than one connection per client if you are using 2 machin
 I ran in to this when one of my laptops was "sleeping" and my other one just couldn't maintain an SSH connection to workspace.
 
 Adding `duplicate-cn` to `/etc/openvpn/server/server.conf` on the VPN droplet will allow more than one connection per certificate. This is not recommended for production or multi-user environments, but here I think it's alright.
+
+Alternatively the getting started instructions for the VPN droplet show how to generate a second client .ovpn file.
 ```
 x.x.x.x:52203 [client] Peer Connection Initiated with [AF_INET]x.x.x.x:52203
 MULTI: new connection by client 'client' will cause previous active sessions by this client to be dropped.  Remember to use the --duplicate-cn option if you want multiple clients using the same certificate or username to concurrently connect.
