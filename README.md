@@ -39,7 +39,7 @@ Once it's running:
 - Add same SSH key as workspace
 - Name `openvpn-pihole`, tag `vpn`
 - Follow the getting started directions for this droplet, you can `cat /root/client.ovpn` and copy the contents to a local file.
-- Add your workspace floating IP to the VPN conf (last line of config) to route only that IP.
+- Add your workspace floating IP to the VPN conf (last line of config) to route only that IP, like this:
 ```none
 route-nopull
 route <workspace floating ip> 255.255.255.255
