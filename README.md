@@ -99,3 +99,10 @@ Warnings, nameserver setting, etc.
 
 ### SSH ForwardAgent not working
 https://serverfault.com/a/404453
+
+### SSH to workspace dropping very frequently with broken pipe
+OpenVPN must allow more than one connection per client.
+```
+x.x.x.x:52203 [client] Peer Connection Initiated with [AF_INET]x.x.x.x:52203
+MULTI: new connection by client 'client' will cause previous active sessions by this client to be dropped.  Remember to use the --duplicate-cn option if you want multiple clients using the same certificate or username to concurrently connect.
+```
