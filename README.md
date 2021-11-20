@@ -1,29 +1,56 @@
+
 # .vscode Dotfile for CND
 
-**TODO: this whole file**
 
-# Brand new install
+# Getting Started
 
 ## Infrastructure
-- create a droplet workspace
-	- give it workspace tag
-	- set up floating IP
-	- add IP to your hosts file
-- Firewall (optional, recommended):
-    - spawn a VPN droplet
-        - Marketplace Image: `OpenVPN + Pihole`
-        - in the same VPC
-    	- name `openvpn-pihole`, tag `vpn`
-    	- Follow the getting started directions
-    	- Add your new floating IP to the VPN conf (last line of config) to route only that IP.
-			```none
-			route-nopull
-			route 178.122.131.139 255.255.255.255
-			```
-    - create a Network Firewall
-        - name workspace
-        - IN: allow [`ICMP`, `TCP`, `UDP`] from `vpn` tag.
-        - OUT: allow [`ICMP`, `TCP`, `UDP`] from [`All IPv4`, `All IPv6`].
+
+**Workspace Droplet**
+- Ubuntu
+- Shared CPU - Regular Intel with SSD - Suitable size
+- No block storage
+- Suitable region
+- No additional options
+- Add SSH key
+- Change hostname to something more friendly, e.g. `workspace-1`
+- Give it the tag `workspace`
+- No backups
+- Create!
+
+Once it's running:
+- Set up floating IP for the workspace droplet
+- Add IP to your hosts file: `<floating ip> workspace`
+- Add SSH config for the droplet:
+  ```
+  Host workspace
+    HostName workspace
+    User root
+    ForwardAgent yes
+  ```
+  (ForwardAgent will pass through your local SSH key to the session, allowing you to pull from GitHub etc immediately without copying the keys in to the droplet.)
+  
+**Firewall Droplet**
+- Marketplace Image: `OpenVPN + Pihole`
+- Smallest standard size is fine
+- No block storage
+- In the same region/VPC as workspace
+- No additional options
+- Add same SSH key as workspace
+- Name `openvpn-pihole`, tag `vpn`
+- Follow the getting started directions for this droplet, you can `cat /root/client.ovpn` and copy the contents to a local file.
+- Add your workspace floating IP to the VPN conf (last line of config) to route only that IP.
+```none
+route-nopull
+route <workspace floating ip> 255.255.255.255
+```
+- You can now use this file to connect to the VPN droplet, which will provide a secure tunnel to the workspace droplet once we set up the firewall in the following steps. For macOS you could use https://tunnelblick.net/ as your VPN client. There are some further settings that can be configured in Tunnelblick to make this process even better see the Notes section.
+
+**Create a DO Network Firewall**
+- Name `workspace`
+- IN: allow [`ICMP`, `All TCP`, `All UDP`] from `vpn` tag.
+- OUT: allow [`ICMP`, `All TCP`, `All UDP`] from [`All IPv4`, `All IPv6`].
+- Apply this firewall to the `workspace` droplet (does not need to be applied to the `vpn` droplet).
 
 ## Provisioning
 - update & upgrade
@@ -65,3 +92,6 @@
 - create and provision a new droplet as seen above
   - cp -R /mnt/workspace/workspace /root/
 - detach and destroy the volume
+
+# Notes
+TODO: Tunnelblick warnings, nameserver setting, etc.
