@@ -94,4 +94,8 @@ route <workspace floating ip> 255.255.255.255
 - detach and destroy the volume
 
 # Notes
-TODO: Tunnelblick warnings, nameserver setting, etc.
+### Tunnelblick
+Warnings, nameserver setting, etc.
+
+### SSH ForwardAgent not working
+https://serverfault.com/a/404453
