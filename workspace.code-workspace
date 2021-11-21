@@ -6,23 +6,24 @@
 	],
 	"settings": {
 		"workbench.colorCustomizations": {
-			"activityBar.activeBackground": "#1f6fd0",
-			"activityBar.activeBorder": "#ee90bb",
-			"activityBar.background": "#1f6fd0",
-			"activityBar.foreground": "#e7e7e7",
-			"activityBar.inactiveForeground": "#e7e7e799",
-			"activityBarBadge.background": "#ee90bb",
-			"activityBarBadge.foreground": "#15202b",
-			"statusBar.background": "#1857a4",
-			"statusBar.foreground": "#e7e7e7",
-			"statusBarItem.hoverBackground": "#1f6fd0",
-			"statusBarItem.remoteBackground": "#c92121",
-			"statusBarItem.remoteForeground": "#d3d3d3",
-			"titleBar.activeBackground": "#1857a4",
-			"titleBar.activeForeground": "#e7e7e7",
-			"titleBar.inactiveBackground": "#1857a499",
-			"titleBar.inactiveForeground": "#e7e7e799",
+		// 	"activityBar.activeBackground": "#2d0e55",
+		// 	"activityBar.activeBorder": "#ee90bb",
+		// 	"activityBar.background": "#2d0e55",
+		// 	"activityBar.foreground": "#e7e7e7",
+		// 	"activityBar.inactiveForeground": "#e7e7e799",
+		// 	"activityBarBadge.background": "#ee90bb",
+		// 	"activityBarBadge.foreground": "#15202b",
+		// 	"statusBar.background": "#1f0a3a",
+		// 	"statusBar.foreground": "#e7e7e7",
+		// 	"statusBarItem.hoverBackground": "#2d0e55",
+			"statusBarItem.remoteBackground": "#ff8850",
+		//	"statusBarItem.remoteForeground": "#d3d3d3",
+		 	"titleBar.activeBackground": "#1f0a3a",
+		// 	"titleBar.activeForeground": "#e7e7e7",
+		 	"titleBar.inactiveBackground": "#1f0a3a8f",
+		 	"titleBar.inactiveForeground": "#e7e7e799",
 		},
+		"terminal.integrated.defaultProfile.linux": "zsh"
 	},
 	"extensions": {
 		// List of extensions which should be recommended for users of this workspace.
@@ -38,6 +39,7 @@
 			"yzhang.markdown-all-in-one",
 			"philnash.ngrok-for-vscode",
 			"mutantdino.resourcemonitor",
+			"dracula-theme.theme-dracula",
 		],
 		// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 		"unwantedRecommendations": [
