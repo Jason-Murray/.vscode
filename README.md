@@ -98,7 +98,13 @@ route <workspace floating ip> 255.255.255.255
 Warnings, nameserver setting, etc.
 
 ### SSH ForwardAgent not working
+Make sure keys are added to agent on local:
 https://serverfault.com/a/404453
+
+Still not working, disable remote SSH agent fudger in VSCode settings:
+remote.SSH.enableAgentForwarding
+
+Then kill remote VSCode server on workspace from command palette.
 
 ### SSH to workspace dropping very frequently with broken pipe
 OpenVPN must allow more than one connection per client if you are using 2 machines on the VPN.
